@@ -27,15 +27,9 @@ The models compared are:
 
   ## Repository Structure and Components
 * `data/` : A folder containing the dataset file (`default-of-credit-card-clients.csv`).
-* `models/` : A folder containing our Jupyter Notebook (`Final_Project.ipynb`) with all the ML modeling work, including data preprocessing, feature scaling, baseline reproduction (KNN), and our contributions (SMOTE, Logistic Regression, Tuned Decision Tree).
+* `models/` : A folder containing our Jupyter Notebook (`DS301_Final_Project.ipynb`) with all the ML modeling work, including data preprocessing, feature scaling, baseline reproduction (KNN), and our contributions (SMOTE, Logistic Regression, Tuned Decision Tree).
 * `Project Report.pdf` : A detailed project report outlining our motivation, methodology, challenges, and significant improvements.
 * `Project Presentation File.pdf` : The presentation slides summarizing our findings and learning outcomes.
-
-## Instructions on How to Run the Code
-1. Clone or download this repository to your local machine.
-3. Install the required Python programming libraries: `pandas`, `numpy`, `matplotlib`, `scikit-learn`, and `imblearn`.
-4. Open the `Final_Project.ipynb` file located in the `models/` folder using Jupyter Notebook, Google Colab, or any compatible Python environment.
-5. Run all the cells sequentially from top to bottom. The code is fully structured to automatically execute data preprocessing, followed by the paper reproduction model (KNN), and finally our contributed models.
 
 ## Research Paper
 
@@ -200,8 +194,8 @@ Improving recall can create more false positives and reduce precision or accurac
 ```text
 .
 ├── README.md
-├── credit_default_ml_simplificado.ipynb
-├── Credit_Card_Default_ML_Presentation.pptx
+├── DS301_Final_Project.ipynb
+├── DS301_Final_Project_Presentation.pptx
 ├── MLArticle.pdf
 └── data/
     └── default_of_credit_card_clients.xls
@@ -240,7 +234,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn ucimlr
 jupyter notebook
 ```
 
-Open `credit_default_ml_simplificado.ipynb` and run the cells in order.
+Open `DS301_Final_Project.ipynb` and run the cells in order.
 
 > **Important:** The complete GridSearchCV process can take several minutes, especially for SVM. The notebook first tries to download the dataset from UCI and uses the local file in the `data` folder as a fallback.
 
@@ -267,4 +261,3 @@ Open `credit_default_ml_simplificado.ipynb` and run the cells in order.
 
 1. Ly, T., Schuller, R., Simanic, K., & Singh, S. *Predicting Default of Credit Card Clients Using Three Supervised Machine Learning Algorithms*. University of Windsor.
 2. UCI Machine Learning Repository. [Default of Credit Card Clients](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients).
-3. Yeh, I.-C., & Lien, C.-H. (2009). *The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients*. Expert Systems with Applications, 36(2), 2473-2480. [https://doi.org/10.1016/j.eswa.2007.12.020](https://doi.org/10.1016/j.eswa.2007.12.020).
