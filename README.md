@@ -26,7 +26,7 @@ The models compared are:
 - K-Nearest Neighbors (KNN)
 - Support Vector Machine (SVM)
 
-  ## Repository Structure and Components
+## Repository Structure and Components
 * `data/` : A folder containing the dataset file (`default-of-credit-card-clients.csv`).
 * `models/` : A folder containing our Jupyter Notebook (`DS301_Final_Project.ipynb`) with all the ML modeling work, including data preprocessing, feature scaling, baseline reproduction (KNN), and our contributions (SMOTE, Logistic Regression, Tuned Decision Tree).
 * `Project Report.pdf` : A detailed project report outlining our motivation, methodology, challenges, and significant improvements.
