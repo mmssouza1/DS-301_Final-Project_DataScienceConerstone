@@ -9,6 +9,7 @@
 ## Resources
 * **Research Paper:** [Credit Default Mining Using Combined Machine Learning and Heuristic Approach](https://thomshu.github.io/ThomsonPorfolio.github.io/Media/MLArticle.pdf)
 * **Dataset:** [UCI Default of Credit Card Clients](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
+* **Canva Presentation:** https://canva.link/el13qjq8yakgjbr
 
 ## Project Overview
 
@@ -29,7 +30,6 @@ The models compared are:
 * `data/` : A folder containing the dataset file (`default-of-credit-card-clients.csv`).
 * `models/` : A folder containing our Jupyter Notebook (`DS301_Final_Project.ipynb`) with all the ML modeling work, including data preprocessing, feature scaling, baseline reproduction (KNN), and our contributions (SMOTE, Logistic Regression, Tuned Decision Tree).
 * `Project Report.pdf` : A detailed project report outlining our motivation, methodology, challenges, and significant improvements.
-* `Project Presentation File.pdf` : The presentation slides summarizing our findings and learning outcomes.
 
 ## Research Paper
 
