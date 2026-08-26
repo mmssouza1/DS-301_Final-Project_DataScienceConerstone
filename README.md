@@ -27,9 +27,3 @@ Furthermore, we provided significant contributions to the baseline methodology b
 3. Install the required Python programming libraries (if not already installed): `pandas`, `numpy`, `scikit-learn`, and `imblearn`.
 4. Open the `Final_Project.ipynb` file located in the `models/` folder using Jupyter Notebook, Google Colab, or any compatible Python environment.
 5. Run all the cells sequentially from top to bottom. The code is fully structured to automatically execute data preprocessing, followed by the paper reproduction models, and finally our contributed models.
-
-Paper Reserch 
-https://thomshu.github.io/ThomsonPorfolio.github.io/Media/MLArticle.pdf
-
-dataset 
-https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
