@@ -81,14 +81,19 @@ To fulfill the course requirements and improve the original methodology, our gro
 | Eduardo | Group contribution (Logistic Regression), hyperparameter tuning, and results |
 | Maria | Challenges, learning points, conclusion, and Q&A |
 
-## Repository Structure & How to Run
+## Repository Structure 
+    .
+    ├── README.md
+    ├── Project Report.pdf
+    ├── Project Presentation File.pdf
+    ├── data/
+    │   └── default_of_credit_card_clients.xls
+    └── models/
+        └── DS301_Final_Project_credit_default.ipynb
 
-```text
-.
-├── README.md
-├── Project Report.pdf
-├── Project Presentation File.pdf
-├── data/
-│   └── default-of-credit-card-clients.csv
-└── models/
-    └── DS301_Final_Project_credit_default.ipynb
+## Instructions on How to Run the Code
+1. **Clone the repository** to your local machine or download it as a ZIP file.
+2. **Install the required Python libraries** using pip: `pip install pandas numpy matplotlib seaborn scikit-learn ucimlrepo xlrd`
+3. **Verify data location:** Ensure that the dataset file (`default_of_credit_card_clients.xls` or `.csv`) is placed inside the `data/` folder. (If the file is missing, the code will automatically attempt to fetch it from the UCI repository).
+4. **Open the Notebook:** Open the file `DS301_Final_Project_credit_default.ipynb` (located inside the `models/` folder) using Jupyter Notebook, JupyterLab, or Google Colab.
+5. **Execute the code:** Run all cells sequentially from top to bottom. Note that the Support Vector Machine (SVM) training cell and the `GridSearchCV` process for Logistic Regression may take a few minutes to complete.
