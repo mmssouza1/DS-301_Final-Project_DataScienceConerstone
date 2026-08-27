@@ -87,7 +87,7 @@ To fulfill the course requirements and improve the original methodology, our gro
     ├── Project Report.pdf
     ├── Project Presentation File.pdf
     ├── data/
-    │   └── default_of_credit_card_clients.xls
+    │   └── default_of_credit_card_clients.csv
     └── models/
         └── DS301_Final_Project_credit_default.ipynb
 
