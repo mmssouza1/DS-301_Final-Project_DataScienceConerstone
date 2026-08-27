@@ -116,6 +116,10 @@ The article selects hyperparameters mainly using accuracy. Our improved version 
 
 The improved experiments also evaluate parameters such as minimum samples per leaf, class weights, additional K values, and SVM gamma settings.
 
+### 5. Logistic Regression 
+
+Adds a fourth model not tested by the selected article.
+
 ## Results
 
 ### Default-Class F1-Score
