@@ -9,7 +9,7 @@
 ## Resources
 * **Research Paper:** [Predicting Default of Credit Card Clients Using Three Supervised Machine Learning Algorithms](https://thomshu.github.io/ThomsonPorfolio.github.io/Media/MLArticle.pdf)
 * **Dataset:** [UCI Default of Credit Card Clients](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients)
-* **Canva Presentation:** [https://canva.link/el13qjq8yakgjbr](https://canva.link/jre8jlc8xigbc66)
+* **Canva Presentation:** [[https://canva.link/el13qjq8yakgjbr](https://canva.link/jre8jlc8xigbc66)](https://canva.link/jre8jlc8xigbc66)
 
 ## Project Overview
 
