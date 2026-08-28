@@ -84,8 +84,8 @@ To fulfill the course requirements and improve the original methodology, our gro
 ## Repository Structure 
     .
     ├── README.md
-    ├── Project Report.pdf
-    ├── Project Presentation File.pdf
+    ├── DS_301_Final_project_Report.pdf
+    ├── DS301_Final_Project_Presentation.pdf
     ├── data/
     │   └── default_of_credit_card_clients.csv
     └── models/
