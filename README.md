@@ -55,41 +55,112 @@ To fulfill the course requirements and improve the original methodology, our gro
 
 ## Results
 
-### Final Results at a Glance
-| Role | Model | Accuracy | Precision | Recall | F1-Score |
-|---|---|---:|---:|---:|---:|
-| Published in article | SVM | 0.760 | 0.480 | 0.580 | 0.520 |
-| Our reproduction | SVM | 0.757 | 0.464 | 0.566 | 0.510 |
-| **GROUP CONTRIBUTION** | **Logistic Regression** | **0.696** | **0.390** | **0.645** | **0.486** |
+## The project has two main goals:
 
-### Main Result Highlights
-- The reproduction supports the main finding of the selected article: SVM is the strongest of the three published models overall, achieving a reproduced F1-score of 0.510.
-- However, our contributed **Logistic Regression model significantly improved Recall (0.645)** compared to the reproduced SVM (0.566). 
-- This means Logistic Regression successfully identified more real default cases. In a financial context where missing a high-risk client is costly, this contribution is highly valuable, despite a slight drop in overall accuracy and precision.
+1. Reproduce Decision Tree, K-Nearest Neighbors (KNN), and Support Vector Machine (SVM) using the methodology and best parameters reported by the paper.
+2. Add Logistic Regression as the group's classification contribution and compare it fairly with the reproduced models.
 
-## Challenges & Main Learnings
-* **Class Imbalance:** Only 22.3% of clients default. Accuracy alone is misleading; precision, recall, and F1-score are critical.
-* **Exact Reproduction:** The article did not report its random split seed, making exact numerical reproduction impossible (small variances are expected).
-* **Metric Trade-Offs:** Oversampling and prioritizing Recall inherently increased false positives (lowering Precision). We learned that a new model can be valuable even if it doesn't produce the highest F1-score, depending on business priorities.
-* **Data Leakage:** We ensured the `StandardScaler` was fitted strictly on the training set before testing.
+## Research Questions
 
-## Team and Presentation Responsibilities
-| Participant | Main Responsibility |
+- Can the main workflow and results of the selected paper be reproduced?
+- Which of the three published models performs best for the default class?
+- What additional insight does Logistic Regression provide when it uses the same cleaned data and test set?
+
+## Dataset
+
+The project uses the [Default of Credit Card Clients dataset](https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients) from the UCI Machine Learning Repository, dataset ID 350.
+
+The records describe credit card clients from Taiwan and include credit limits, demographic variables, payment status, bill amounts, previous payment amounts, and the next-month default target.
+
+| Item | Value |
+|---|---:|sa
+| Removed undocumented rows | 399 |
+| Final observations | 29,601 |
+| Input features | 23 |
+| No-default clients | 22,996 (77.7%) |
+| Default clients | 6,605 (22.3%) |
+| Target | Default next month: 0 or 1 |
+
+The 399 rows were removed because they contained undocumented values in `EDUCATION` or `MARRIAGE`, following the cleaning rule used in the selected paper.
+
+## Methodology
+
+The reproduction follows these steps:
+
+1. Load the local Excel dataset, with UCI dataset ID 350 as an online fallback.
+2. Remove the `ID` column.
+3. Remove undocumented `EDUCATION` and `MARRIAGE` values.
+4. Create a stratified 80% training and 20% testing split.
+5. Fit `StandardScaler` only on the training data.
+6. Apply random oversampling only to the training data.
+7. Train Decision Tree, KNN, and SVM with the best parameters reported by the paper.
+8. Evaluate accuracy, precision, recall, F1-score, and confusion matrices for the default class.
+
+A fixed random state of `42` is used because the paper does not report its original train-test split seed. Small differences from the published results are therefore expected.
+
+## Article Models
+
+| Model | Best parameters reported by the paper |
 |---|---|
-| Simon | Project motivation, research questions, and article overview |
-| Gabriel | Dataset, cleaning, preprocessing, and reproduction workflow |
-| Eduardo | Group contribution (Logistic Regression), hyperparameter tuning, and results |
-| Maria | Challenges, learning points, conclusion, and Q&A |
+| Decision Tree | `criterion='entropy'`, `max_depth=None`, `max_features=9`, `splitter='best'` |
+| KNN | `n_neighbors=1`, `metric='euclidean'`, `weights='uniform'` |
+| SVM | `kernel='rbf'`, `C=10` |
 
-## Repository Structure 
-    .
-    ├── README.md
-    ├── DS_301_Final_project_Report.pdf
-    ├── DS301_Final_Project_Presentation.pdf
-    ├── data/
-    │   └── default_of_credit_card_clients.csv
-    └── models/
-        └── DS301_Final_Project_credit_default.ipynb
+## Group Contribution: Logistic Regression
+
+Logistic Regression was added as a fourth binary classification model. It was implemented separately from the three reproduced article models so the contribution is easy to identify in the notebook.
+
+The group tested:
+
+- `C = [0.01, 0.1, 1, 10, 100]`
+- `solver='liblinear'`
+- `max_iter=3000`
+- Three-fold stratified cross-validation
+- Default-class F1-score as the selection metric
+
+The best configuration used `C=0.01`.
+
+## Final Results
+
+| Role | Model | Accuracy | Precision | Recall | F1-score |
+|---|---|---:|---:|---:|---:|
+| Published in paper | Decision Tree | 0.740 | 0.420 | 0.410 | 0.410 |
+| Published in paper | KNN | 0.730 | 0.400 | 0.380 | 0.390 |
+| Published in paper | **SVM** | **0.760** | **0.480** | 0.580 | **0.520** |
+| Our reproduction | Decision Tree | 0.735 | 0.404 | 0.399 | 0.401 |
+| Our reproduction | KNN | 0.723 | 0.379 | 0.377 | 0.378 |
+| Our reproduction | **SVM** | **0.757** | **0.464** | 0.566 | **0.510** |
+| **Group contribution** | **Logistic Regression** | 0.696 | 0.390 | **0.645** | 0.486 |
+
+### Contribution Compared with Reproduced SVM
+
+| Metric | Reproduced SVM | Logistic Regression | Change |
+|---|---:|---:|---:|
+| Accuracy | 0.757 | 0.696 | -0.062 |
+| Precision | 0.464 | 0.390 | -0.074 |
+| Recall | 0.566 | 0.645 | **+0.079** |
+| F1-score | 0.510 | 0.486 | -0.024 |
+
+SVM remained the best balanced model according to F1-score. Logistic Regression did not improve the best overall F1-score, but it improved recall by `0.079`. This means it identified a larger proportion of clients who actually defaulted, while also producing more false positives.
+
+## Limitations
+
+- The dataset represents clients from one Taiwanese bank and an older historical period.
+- Random oversampling repeats minority-class observations and may increase overfitting.
+- The project does not include probability calibration or a financial cost matrix.
+- The models were not evaluated on a second credit-risk dataset.
+- The final predictions should not be used alone for automatic credit decisions.
+
+## Future Work
+
+- Test Random Forest, XGBoost, and neural networks.
+- Perform a broader hyperparameter search with cross-validation.
+- Compare SMOTE, class weighting, and other sampling strategies.
+- Adjust the classification threshold according to the bank's business objective.
+- Evaluate the financial costs of false positives and false negatives.
+- Improve interpretability and identify the variables that contribute most to default predictions.
+- Test the methodology on newer data or another credit-risk dataset.
+- Create a controlled application for practical model testing.
 
 ## Instructions on How to Run the Code
 1. **Clone the repository** to your local machine or download it as a ZIP file.
